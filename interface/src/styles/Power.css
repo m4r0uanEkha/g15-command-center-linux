@@ -1,0 +1,74 @@
+.power-container {
+    width: 100%;
+}
+
+.profile-choices {
+    color: white;
+    gap: 35px;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+}
+
+.profile-choice:hover {
+    cursor: pointer;
+}
+
+.gauge-container {
+    padding: 20px;
+    position: relative;
+    color: #FFF;
+}
+
+.gauge-value {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: center;
+    transform: translate(-50%, -57%);
+}
+
+.gauge-value span:first-of-type {
+    font-size: 45px;
+    font-weight: 400;
+}
+
+.gauge-value span:last-of-type {
+    font-size: 15px;
+    position: absolute;
+    bottom: -20px;
+}
+
+.gauge-bottom-container {
+    text-align: center;
+    position: absolute;
+    bottom: 5px;
+}
+
+.gauge-bottom-container span:first-of-type {
+    font-size: 14px;
+    letter-spacing: 1px;
+    font-weight: bold;
+    line-height: 1.5;
+}
+
+.gauge-bottom-container span:last-of-type {
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    line-height: 1;
+}
+
+@keyframes spinBladesGroup {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.spinning-blades-mask {
+    transform-origin: center;
+    animation: spinBladesGroup linear infinite;
+}
