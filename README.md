@@ -79,7 +79,7 @@ Tip: It is recommended to set up a custom udev rule:
 
    2. Compile the Python backend into a Tauri sidecar:
    ```
-   cd awcc-g15-linux/controller
+   cd acc-g15-linux/controller
 
    python3 -m venv .venv
    
