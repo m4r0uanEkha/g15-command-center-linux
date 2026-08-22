@@ -12,7 +12,7 @@ ACTION_RGB_SET      =   "SET_RGB"
 ACTION_CONFIG_GET   =   "GET_CONFIG"
 ACTION_PROFILE_SET  =   "SET_PROFILE"
 
-FX_CONFIG_FILE      =   "cachyfx_config.json"
+FX_CONFIG_FILE      =   "g15cc_config.json"
     
 def save_config(config: dict, file: str = FX_CONFIG_FILE):
     try:

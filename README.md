@@ -2,6 +2,10 @@
 ## Open-source Clone of AWCC for Dell G15 5530 (Linux)
 A lightweight, high-performance Linux clone of the Windows Alienware Command Center, built specifically for Dell G15 5530 laptops. This application recreates the exact UI/UX layout of the official software, allowing you to manage power/thermal profiles and per-zone AlienFX keyboard lighting natively on Linux.
 
+## Compatibility
+For the time being, this app is only compatible with Dell G15 5530, a VID = 0x187C and PID = 0x0551.
+Other models hid communication is not implemented yet.
+
 ## Architecture & Tech Stack
 This application is built for speed and low resource consumption:
 
@@ -74,12 +78,12 @@ Tip: It is recommended to set up a custom udev rule:
 
    1. Clone the repository:
    ```
-   git clone https://github.com/m4r0uanEkha/acc-g15-linux.git
+   git clone https://github.com/m4r0uanEkha/g15-command-center-linux.git
    ```
 
    2. Compile the Python backend into a Tauri sidecar:
    ```
-   cd acc-g15-linux/controller
+   cd g15-command-center-linux/controller
 
    python3 -m venv .venv
    

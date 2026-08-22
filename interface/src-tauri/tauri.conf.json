@@ -1,8 +1,8 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "cachy-fx",
+  "productName": "g15-command-center",
   "version": "0.1.0",
-  "identifier": "com.marouane.cachy-fx",
+  "identifier": "com.m4r0uanEkha.g15-command-center",
   "build": {
     "beforeDevCommand": "npm run dev",
     "devUrl": "http://localhost:1420",
@@ -12,7 +12,7 @@
   "app": {
     "windows": [
       {
-        "title": "CachyFX",
+        "title": "G15 Command Center",
         "width": 1920,
         "height": 1080,
         "decorations": false
