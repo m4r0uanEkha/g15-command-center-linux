@@ -167,8 +167,6 @@ class RGBController:
         return (resp[1] == 0x83) and (resp[2] == CMD_SELECT_ZONES)
 
     def mode_action(self, modes: list, durations: list, tempos: list, colors: list) -> bool:
-        """modes/durations/tempos/colors are parallel lists, max 3 entries
-        (the report can only fit 3 sub-actions — enforced same as .cpp)."""
         amount = len(modes)
         if amount > 3:
             return False
@@ -227,24 +225,6 @@ class RGBController:
             )
             i += 3
         return result
-
-    def set_color_direct(self, color: tuple, zones: list) -> bool:
-        if not zones:
-            return True
-        buf = self._new_buf()
-        r, g, b = color
-        num_zones = len(zones)
-        buf[2] = CMD_SET_COLOR
-        buf[3] = r
-        buf[4] = g
-        buf[5] = b
-        buf[6] = (num_zones >> 8) & 0xFF
-        buf[7] = num_zones & 0xFF
-        for i, z in enumerate(zones):
-            buf[8 + i] = z
-        self._send(buf)
-        resp = self._recv()
-        return resp[1] == 0x83 and resp[2] == CMD_SET_COLOR
 
     def reset(self) -> bool:
         buf = self._new_buf()
@@ -404,15 +384,5 @@ if __name__ == "__main__":
 
     controller = RGBController(vendor_id=ALIENWARE_VID, product_id=AW_ELC_PID)
     print(controller.connect())
-
-    # config = {
-    #     0: {"effect": "Color", "color1":(100, 0, 0), "color2": (255, 0, 0), "brightness": 100, "tempo": 100, "duration": 1500},
-    #     1: {"effect": "Color", "color1":(0, 100, 0), "color2": (255, 0, 0), "brightness": 100, "tempo": 100, "duration": 1500},
-    #     2: {"effect": "Color", "color1":(0, 0, 100), "color2": (255, 0, 0), "brightness": 100, "tempo": 100, "duration": 1500},
-    #     3: {"effect": "Color", "color1":(255, 255, 0), "color2": (255, 0, 0), "brightness": 100, "tempo": 100, "duration": 1500}
-    # }
-    # controller.apply_zones_config(config)
-
-    # controller.set_color_direct(color=(255, 0, 0), zones=[0, 1, 2, 3])
-
+    
     controller.close()
